@@ -1,17 +1,13 @@
 #!/bin/bash
 
-DATABASE_NAME=realtimeapp
-DB_USERNAME=root
-DB_PASSWORD=password123 
-BUCKET_NAME=amalitech-db-backup
-# BACKUP_DIRECTORY 
-
-
-# Set the database name
-# DATABASE_NAME=[DATABASE_NAME]
+# Load environment variables from .env file
+while read -r line || [[ -n "$line" ]]; do
+  if [[ $line =~ ^[A-Za-z_]+=[^\#]+ ]]; then
+    export "$line"
+  fi
+done < .env
 
 # Set the backup file name
-# BACKUP_FILE="$realtimeapp_backup_$(date +%Y-%m-%d_%H-%M-%S).sql"
 BACKUP_FILE=$DATABASE_NAME"backup_$(date +%Y-%m-%d_%H-%M-%S).sql"
 
 # Create the backup file
