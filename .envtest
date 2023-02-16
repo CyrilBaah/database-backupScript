@@ -1,4 +1,0 @@
-DATABASE_NAME=realtimeapp
-DB_USERNAME=root
-DB_PASSWORD=password123 
-BUCKET_NAME=amalitech-db-backup
